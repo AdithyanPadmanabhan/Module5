@@ -10,63 +10,68 @@ namespace PlayWrightNunit
         {
         }
 
-       /* [Test]// manual instances
-        public async Task Test1()
-        {
-            using var playwright = await Playwright.CreateAsync();
+       /*  [Test]// manual instances
+         public async Task Test1()
+         {
+             using var playwright = await Playwright.CreateAsync();
 
-            //Launch browser
-            await using var browser = await playwright.Chromium.LaunchAsync();
-
-
-            //Page instance
-            var context = await browser.NewContextAsync();
-            var page = await context.NewPageAsync();
-
-            Console.WriteLine("Opened Browser");
-            await page.GotoAsync("https://www.google.com");
-
-            Console.WriteLine("Page Loaded");
+             //Launch browser
+             await using var browser = await playwright.Chromium.LaunchAsync(
+                 
+                 new BrowserTypeLaunchOptions
+                 {
+                     Headless = false
+                 });
 
 
-            string title = await page.TitleAsync();
-            Console.WriteLine(title);
+             //Page instance
+             var context = await browser.NewContextAsync();
+             var page = await context.NewPageAsync();
 
-            //await page.GetByTitle("Search").FillAsync("hp laptop");
-            await page.Locator("#APjFqb").FillAsync("selenium");
+             Console.WriteLine("Opened Browser");
+             await page.GotoAsync("https://www.google.com");
+
+             Console.WriteLine("Page Loaded");
 
 
-            Console.WriteLine("Typed");
+             string title = await page.TitleAsync();
+             Console.WriteLine(title);
 
-            await page.Locator("(//input[@value='Google Search'])[2]").ClickAsync();
-            Console.WriteLine("clicked");
+             //await page.GetByTitle("Search").FillAsync("hp laptop");
+             await page.Locator("#APjFqb").FillAsync("selenium");
 
-        }*/
+
+             Console.WriteLine("Typed");
+
+             await page.Locator("(//input[@value='Google Search'])[2]").ClickAsync();
+             Console.WriteLine("clicked");
+
+         }*/
         [Test] //Play wright managed instances
-        public async Task Test2()
-        {
-            
-
-            Console.WriteLine("Opened Browser");
-            await Page.GotoAsync("https://www.google.com");
-
-            Console.WriteLine("Page Loaded");
+         public async Task Test2()
+         {
 
 
-            string title = await Page.TitleAsync();
-            Console.WriteLine(title);
+             Console.WriteLine("Opened Browser");
+             await Page.GotoAsync("https://www.google.com");
 
-            //await page.GetByTitle("Search").FillAsync("hp laptop");
-            await Page.Locator("#APjFqb").FillAsync("selenium");
+             Console.WriteLine("Page Loaded");
 
 
-            Console.WriteLine("Typed");
+             string title = await Page.TitleAsync();
+             Console.WriteLine(title);
 
-            await Page.Locator("(//input[@value='Google Search'])[2]").ClickAsync();
-            Console.WriteLine("clicked");
-            title = await Page.TitleAsync();
-            Assert.That(title,Does.Contain("selenium"));
+             //await page.GetByTitle("Search").FillAsync("hp laptop");
+             await Page.Locator("#APjFqb").FillAsync("selenium");
 
-        }
+
+             Console.WriteLine("Typed");
+
+             await Page.Locator("(//input[@value='Google Search'])[2]").ClickAsync();
+            //Console.WriteLine("clicked");
+            //title = await Page.TitleAsync();
+            // Assert.That(title,Does.Contain("selenium"));
+            await Expect(Page).ToHaveTitleAsync("selenium - Google Search");
+         } 
     }
 }
