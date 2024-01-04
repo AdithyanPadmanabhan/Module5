@@ -18,7 +18,12 @@ namespace PlayWrightNunit
         public async Task SetUp()
         {
             Console.WriteLine("opened browser");
-            await Page.GotoAsync("http://eaapp.somee.com/");
+            //await Page.GotoAsync("http://eaapp.somee.com/");
+            await Page.GotoAsync("http://eaapp.somee.com/",
+                new PageGotoOptions
+                {
+                    Timeout = 3000,WaitUntil= WaitUntilState.DOMContentLoaded
+                });
             Console.WriteLine("Page Loaded");
         }
         [Test]
@@ -27,13 +32,15 @@ namespace PlayWrightNunit
         {
            
 
-            await Page.GetByText("Login").ClickAsync();
+           // await Page.GetByText("Login").ClickAsync();
 
 
-/*
-            var linklogin = Page.Locator(selector: "text=Login"); //another method
+            /*
+                        var linklogin = Page.Locator(selector: "text=Login"); //another method
 
-            await linklogin.ClickAsync();*/
+                        await linklogin.ClickAsync();*/
+            await Page.ClickAsync(selector: "text=Login", new PageClickOptions { Timeout = 3000});
+           
 
             await Console.Out.WriteLineAsync("Link Clicked");
             await Expect(Page).ToHaveURLAsync("http://eaapp.somee.com/Account/Login");
