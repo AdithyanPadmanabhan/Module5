@@ -1,4 +1,5 @@
 using Microsoft.Playwright;
+using System.Globalization;
 using System.Text.Json;
 
 namespace PlayWrightAPI
@@ -81,13 +82,14 @@ namespace PlayWrightAPI
         }
 
         [Test]
-        public async Task PostUser()
+        [TestCase("John","Engineer")]
+        public async Task PostUser(string nme, string jb)
         {
 
             var postData = new
             {
-                name = "John",
-                job = "Engineer"
+                name =nme,
+                job = jb
             };
 
             var jsonData =System.Text.Json.JsonSerializer.Serialize(postData);  
@@ -112,7 +114,8 @@ namespace PlayWrightAPI
 
 
         [Test]
-        public async Task PutUser()
+        [TestCase(2)]
+        public async Task PutUser(int userid)
         {
 
             var postData = new
@@ -123,7 +126,7 @@ namespace PlayWrightAPI
 
             var jsonData = System.Text.Json.JsonSerializer.Serialize(postData);
 
-            var putresponse = await requestContext.PutAsync(url: "users/2",
+            var putresponse = await requestContext.PutAsync(url: "users/"+userid,
                 new APIRequestContextOptions { Data = jsonData });
 
             await Console.Out.WriteLineAsync("Res : \n" + putresponse.ToString());
@@ -142,14 +145,15 @@ namespace PlayWrightAPI
         }
 
         [Test]
-        public async Task DeleteUser()
+        [TestCase(2)]
+        public async Task DeleteUser(int userid)
         {
 
 
 
 
 
-            var deleteresponse = await requestContext.DeleteAsync(url: "users/2");
+            var deleteresponse = await requestContext.DeleteAsync(url: "users/"+ userid);
                
 
             await Console.Out.WriteLineAsync("Res : \n" + deleteresponse.ToString());
