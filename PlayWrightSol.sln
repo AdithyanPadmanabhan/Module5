@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayWrightNunit", "PlayWrig
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment", "Assignment\Assignment.csproj", "{D0C327A0-6AA1-4E43-A1E8-4E058D55608B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWrightPOM", "PlayWrightPOM\PlayWrightPOM.csproj", "{01DA6701-87E4-4B6C-8B2A-3AEC7EA6CD0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayWrightPOM", "PlayWrightPOM\PlayWrightPOM.csproj", "{01DA6701-87E4-4B6C-8B2A-3AEC7EA6CD0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWrightAPI", "PlayWrightAPI\PlayWrightAPI.csproj", "{5E37AB7F-109F-4EBE-B984-84B6FD12A7B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{01DA6701-87E4-4B6C-8B2A-3AEC7EA6CD0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01DA6701-87E4-4B6C-8B2A-3AEC7EA6CD0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01DA6701-87E4-4B6C-8B2A-3AEC7EA6CD0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E37AB7F-109F-4EBE-B984-84B6FD12A7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E37AB7F-109F-4EBE-B984-84B6FD12A7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E37AB7F-109F-4EBE-B984-84B6FD12A7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E37AB7F-109F-4EBE-B984-84B6FD12A7B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
